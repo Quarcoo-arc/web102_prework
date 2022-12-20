@@ -12,11 +12,37 @@ body {
 .header {
   display: flex;
   background-color: lightblue;
+  justify-content: space-between;
   padding: 1%;
   align-items: center;
   margin-left: -10px;
   margin-right: -10px;
   margin-top: -10px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 8rem;
+  height: 4rem;
+  justify-content: space-around;
+  align-content: space-around;
+  text-decoration: underline;
+}
+
+.links a {
+  cursor: pointer;
+  color: unset;
+}
+
+.links a:hover {
+  color: #758190;
 }
 
 .stats-container {
@@ -45,6 +71,26 @@ body {
   font-size: 50px;
 }
 
+#search {
+  border-radius: 0.3rem;
+  border: none;
+  padding: 0.4rem;
+  margin-right: 1vw;
+  width: 7rem;
+}
+
+#search:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.game-header {
+  align-items: center;
+  justify-content: space-between;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
 #games-container {
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +112,8 @@ body {
   border-radius: 7px;
 }
 
-.game-card:hover {
+.game-card:hover,
+button:hover {
   cursor: pointer;
   box-shadow: 0 0 30px lightblue;
 }
@@ -81,4 +128,14 @@ button {
   padding: 1%;
   margin: 1%;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  #num-contributions,
+  #total-raised,
+  #num-games {
+    font-size: 20px;
+    color: white;
+  }
 }

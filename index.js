@@ -172,7 +172,33 @@ const sortedGames = GAMES_JSON.sort((item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+let [firstGame, secondGame, ...rest] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+const firstGameP = document.createElement("p");
+firstGameP.innerHTML = firstGame.name;
+
+firstGameContainer.appendChild(firstGameP);
 
 // do the same for the runner up item
+const secondGameP = document.createElement("p");
+secondGameP.innerHTML = secondGame.name;
+
+secondGameContainer.appendChild(secondGameP);
+
+// Search Function
+const searchForm = document.getElementById("searchForm");
+const search = (e) => {
+  e.preventDefault();
+
+  let searchStr = e.target.search.value.toLowerCase();
+  e.target.search.value = "";
+  const foundGames = GAMES_JSON.filter(
+    (game) => game.name.toLowerCase().search(searchStr) !== -1
+  );
+
+  deleteChildElements(gamesContainer);
+  addGamesToPage(foundGames);
+};
+
+searchForm.addEventListener("submit", search);
